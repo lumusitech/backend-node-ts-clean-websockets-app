@@ -1,5 +1,7 @@
 # Node with TypeScript - WebSockets - TS-Node-dev (favorite)
 
+This project use WS library for backend and native implementation for the client.
+
 ## After clone, you must do
 
 1. Run this:
@@ -31,7 +33,7 @@
      "start": "npm run build && node dist/app.js"
    ```
 
-## You can see more info about websockets [here](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+## You can see more info about native client websockets [here](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 ## Dependencies
 

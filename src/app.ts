@@ -1,4 +1,4 @@
-import { WebSocketServer } from 'ws';
+import { WebSocket, WebSocketServer } from 'ws';
 
 const wss = new WebSocketServer({ host: '0.0.0.0', port: 3000 });
 
@@ -8,14 +8,25 @@ wss.on('connection', function connection(ws) {
   ws.on('error', console.error);
 
   ws.on('message', function message(data) {
-    console.log('received: %s', data);
-
-    const payload = {
+    const payload = JSON.stringify({
       type: 'custom-message',
       payload: data.toString(),
-    }
+    })
 
-    ws.send(JSON.stringify(payload));
+    // broadcast to all clients including the sender
+    // wss.clients.forEach(function each(client) {
+    //   if (client.readyState === WebSocket.OPEN) {
+    //     client.send(payload, { binary: false });
+    //   }
+    // });
+
+    // broadcast to all clients except the sender
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(payload, { binary: false });
+      }
+    });
+
   });
 
 

@@ -9,9 +9,21 @@ wss.on('connection', function connection(ws) {
 
   ws.on('message', function message(data) {
     console.log('received: %s', data);
+
+    const payload = {
+      type: 'custom-message',
+      payload: data.toString(),
+    }
+
+    ws.send(JSON.stringify(payload));
   });
 
-  ws.send('Hello from Server!');
+
+  // ws.send('Hello from Server!');
+
+  ws.on('close', () => {
+    console.log("client disconnected");
+  });
 
 });
 

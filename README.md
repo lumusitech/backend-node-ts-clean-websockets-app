@@ -8,7 +8,12 @@ This project use WS library for backend and native implementation for the client
 
    ```sh
    pnpm i
+
+   # instance 1 - server:
    pnpm dev
+
+   # instance 2 - client:
+   pnpm exec http-server -o public
    ```
 
 ## This project was created with this steps

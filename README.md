@@ -30,3 +30,9 @@
      "build": "rimraf ./dist && tsc",
      "start": "npm run build && node dist/app.js"
    ```
+
+## You can see more info about websockets [here](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+
+## Dependencies
+
+- [WS](https://www.npmjs.com/package/ws): This is a simple to use, blazing fast, and thoroughly tested WebSocket client and server implementation.
